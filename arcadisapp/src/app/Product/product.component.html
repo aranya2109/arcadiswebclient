@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-lg-4">
+        <input class="form-control" placeholder="search" [(ngModel)]="srchTxt">
+    </div>
+    <div class="col-lg-4">
+        <h3>Products</h3>
+    </div>
+    <div class="col-lg-4">
+        <span class="pull-right" data-action="add"><button (click)="addProduct()"
+                class="btn-sm btn-success">Add</button></span>&nbsp;
+        <span class="pull-right" data-action="export"><button (click)="exportAsExcel()"
+                class="btn-sm btn-success">Export</button></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <ag-grid-angular [modules]="modules" (rowClicked)="rowClicked($event)" class="ag-theme-alpine"
+            style="height: 500px;" [rowData]="rowData" [columnDefs]="columnDefs" (gridReady)="onGridReady($event)"
+            [quickFilterText]="srchTxt"></ag-grid-angular>
+    </div>
+</div>
